@@ -20,4 +20,21 @@ const bubbleSort = (arr, compare = sortDirection.ascd) => {
     return arr
 }
 
-module.exports = {bubbleSort, sortDirection}
+const selectionSort = (arr, compare = sortDirection.ascd) => {
+    for(i = 0;  arr.length > i;  i++){
+        let index = i;
+        for(j = i + 1;  arr.length > j; j++){
+            if(check(arr[index], arr[j], compare)){
+                index = j;
+            }
+        }
+        if(index !== i){
+            const temp = arr[index];
+            arr[index] = arr[i];
+            arr[i] = temp;
+        }
+    }
+    return arr;
+}
+
+module.exports = {bubbleSort, selectionSort,  sortDirection}
